@@ -4,20 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="css/signup.css">
+    
+    <title>Sign Up</title>
 </head>
-<body>
-    <% if (locals.messages.errors) { %>
-        <% messages.errors.forEach( el => { %>
-            <div class="alert alert-danger"><%= el.msg %></div>
-        <% }) %>    
-    <% } %>
-    <form action="/signup" method="POST">
-        <input type="text" name="userName" placeholder="User Name">
+<body class="bg-img">
+
+<div class="form-card-container">
+    <form class="form-card" action="/signup" method="POST">
+        <div class="flex avatar-container">
+        <img class="avatar" src="../img/avatar.jpg" alt="">
+    </div>
+        <input type="text" name="userName" placeholder="Username">
         <input type="email" name="email" placeholder="Email">
+    <div class="password-row">
         <input type="password" name="password" placeholder="Password">
         <input type="password" name="confirmPassword" placeholder="Confirm Password">
-        <input type="submit">
+    </div>
+        <button class="form-btn" >Sign Up</button>
+        <div class="already-account"><p>Already got an account?</p></div>
+ 
     </form>
+    <% if (locals.messages.errors) { %>
+        <div class="error-modal">
+        <% messages.errors.forEach( el => { %>
+            <div class="alert alert-danger"><%= el.msg %></div>
+        <% }) %>  
+    </div>  
+    <% } %>
+
+</div>
+
+<script src="js/avatarRandomizer.js"></script>
 </body>
 </html>
