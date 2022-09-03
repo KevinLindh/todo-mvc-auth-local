@@ -1,9 +1,15 @@
+//Middleware is the code (functions) that runs between the request and response.
+
 const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
+// Passport is middleware for Node.js that makes it easy to implement authentication and authorization.
 const passport = require('passport')
+// 
 const session = require('express-session')
+// 
 const MongoStore = require('connect-mongo')(session)
+// 
 const flash = require('express-flash')
 const logger = require('morgan')
 const connectDB = require('./config/database')
@@ -17,10 +23,13 @@ require('./config/passport')(passport)
 
 connectDB()
 
+
+
 app.set('view engine', 'ejs')
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
+
 app.use(logger('dev'))
 // Sessions
 app.use(
