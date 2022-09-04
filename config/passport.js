@@ -31,5 +31,11 @@ module.exports = function (passport) {
     User.findById(id, (err, user) => done(err, user))
   })
 }
+<<<<<<< HEAD
 
 // test comment
+=======
+// testtt
+
+123
+>>>>>>> a28da569794ccb1938aa8005ef256bae7b40d3e9
