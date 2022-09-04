@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="css/friendList.css" />
+    <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
+  </head>
+  <body>
+    <h1>Hello <%= currentUser.userName %></h1>
+    <ul>
+      <% for(let i = 0; i < currentUser.friends.length; i++){ %>
+      <li><%= currentUser.friends[i].userName %></li>
+      <% } %>
+    </ul>
+    <p>
+      <%= friends.length > 0 ? `You have ${friends.length} friends` : `You have
+      ${friends.length} friends. Why don't you get some?` %>
+    </p>
+    <ul class="addFriendList">
+      <% userList.forEach(function (user) { %> <% if
+      (currentUser.friends.includes({_id: user._id})) { %>
+      <li data-friendId="<%= user._id %>"><%= user.userName %></li>
+      <button class="removeFriendBtn ${<%= user._id %>">Remove</button>
+      <% } else { %>
+      <li data-friendId="<%= user._id %>">
+        <%= user.userName %> <button class="addFriendBtn">Add</button>
+      </li>
+      <% } %> <% }) %>
+    </ul>
+    <a href="/logout">Logout</a>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
