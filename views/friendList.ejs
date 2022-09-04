@@ -11,7 +11,7 @@
   <body>
     <h1>Hello <%= currentUser.userName %></h1>
     <ul>
-      <% for(let i = 0; i < currentUser.friends.length; i++){ %>
+      <% for (let i = 0; i < currentUser.friends.length; i++){ %>
       <li><%= currentUser.friends[i].userName %></li>
       <% } %>
     </ul>
@@ -19,11 +19,17 @@
       <%= friends.length > 0 ? `You have ${friends.length} friends` : `You have
       ${friends.length} friends. Why don't you get some?` %>
     </p>
+
+    <!-- Check if current value (which is an object), contains the user._id -->
+    <!-- array of objects const newArr = currentUser.friends.map(val => val._id) -->
     <ul class="addFriendList">
-      <% userList.forEach(function (user) { %> <% if
-      (currentUser.friends.includes({_id: user._id})) { %>
-      <li data-friendId="<%= user._id %>"><%= user.userName %></li>
-      <button class="removeFriendBtn ${<%= user._id %>">Remove</button>
+      <% userList.forEach(function (user) { const newArr =
+      currentUser.friends.map(val => val._id) %> <% if
+      (newArr.includes(user._id)) { %>
+      <li data-friendId="<%= user._id %>">
+        <%= user.userName %> <button class="removeFriendBtn">Remove</button>
+      </li>
+
       <% } else { %>
       <li data-friendId="<%= user._id %>">
         <%= user.userName %> <button class="addFriendBtn">Add</button>

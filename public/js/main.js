@@ -20,7 +20,23 @@ addFriendList.addEventListener("click", async (event) => {
       location.reload();
     }
   } else if (event.target.classList.value === "removeFriendBtn") {
-    const newFriendId = event.path[1].dataset.friendid;
+    const newFriendId = event.target.parentElement.dataset.friendid;
+
+    console.log(newFriendId);
+
+    const body = { id: newFriendId };
+
+    const response = await fetch("/friendlist", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response.ok) {
+      location.reload();
+    }
   }
 });
 // const deleteBtn = document.querySelectorAll(".del");
