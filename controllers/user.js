@@ -26,12 +26,14 @@ module.exports = {
     try {
       const currentUser = await User.find({ _id: req.user._id });
       const newFriend = await User.find({ _id: req.body.id });
-
-      console.log(newFriend);
+      const addingIdAndUserName = {
+        _id: newFriend[0].id,
+        userName: newFriend[0].userName,
+      };
 
       await User.findByIdAndUpdate(
         { _id: req.user._id },
-        { $push: { friends: newFriend } }
+        { $push: { friends: addingIdAndUserName } }
       );
       res.json({ msg: "Successfully added friend" }).status(200);
     } catch (err) {
@@ -43,16 +45,14 @@ module.exports = {
       const currentUser = await User.find({ _id: req.user._id });
       const newFriendId = await User.find({ _id: req.body.id });
 
-      const newFriends = currentUser[0].friends.filter((friend) => {
-        return friend._id !== newFriendId._id;
-      });
+      const newFriendsArr = currentUser[0].friends.filter(
+        (val) => val._id !== newFriendId[0]._id.toString()
+      );
 
-      // const newFriendsArray = newFriends.map(friend => friend._id)
+      console.log(currentUser[0].friends, newFriendId[0]._id);
 
-      console.log(currentUser[0]);
-
-      // await User.findByIdAndUpdate(req.user._id, { friends: newFriendsArray });
-      // res.json({ msg: "Successfully added friend" }).status(200);
+      await User.findByIdAndUpdate(req.user._id, { friends: newFriendsArr });
+      res.json({ msg: "Successfully added friend" }).status(200);
     } catch (err) {
       console.log(err);
     }

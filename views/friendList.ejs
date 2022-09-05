@@ -30,7 +30,8 @@
         <%= user.userName %> <button class="removeFriendBtn">Remove</button>
       </li>
 
-      <% } else { %>
+      <% } else if(user._id.toString() === currentUser._id.toString()){ %> <% }
+      else { %>
       <li data-friendId="<%= user._id %>">
         <%= user.userName %> <button class="addFriendBtn">Add</button>
       </li>
