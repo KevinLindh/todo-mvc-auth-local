@@ -9,8 +9,11 @@
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
   </head>
   <body>
-    <h1>Hello <%= currentUser.userName %></h1>
-    <ul>
+    <div class="userInfo">
+      <h2>Hello <%= currentUser.userName %></h2>
+      <a href="/logout">Logout</a>
+    </div>
+    <ul class="friendList">
       <% for (let i = 0; i < currentUser.friends.length; i++){ %>
       <li><%= currentUser.friends[i].userName %></li>
       <% } %>
@@ -37,8 +40,6 @@
       </li>
       <% } %> <% }) %>
     </ul>
-    <a href="/logout">Logout</a>
-
     <script src="js/main.js"></script>
   </body>
 </html>
