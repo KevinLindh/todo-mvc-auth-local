@@ -4,42 +4,65 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Instafriend</title>
     <link rel="stylesheet" href="css/friendList.css" />
     <link rel="icon" type="image/x-icon" href="../img/favicon.ico" />
   </head>
   <body>
-    <div class="userInfo">
+    <nav class="userInfo">
       <h2>Hello <%= currentUser.userName %></h2>
+      <div class="stats">
+        <span>Pokes: <%= currentUser.pokes.length %> </span>
+        <span
+          >Poked by: <%= currentUser.pokes.length ?
+          currentUser.pokes[currentUser.pokes.length - 1].userName :
+          "None"%></span
+        >
+        <span>Poked: <%= currentUser.myPokes.length %></span>
+        <span
+          >Previous poke: <%= currentUser.myPokes.length ?
+          currentUser.myPokes[currentUser.myPokes.length - 1]: "None"%></span
+        >
+      </div>
       <a href="/logout">Logout</a>
+    </nav>
+
+    <div class="main">
+      <div class="friend-section">
+        <p>
+          <%= friends.length > 0 ? `You have ${friends.length} friends` : `You
+          have ${friends.length} friends. Why don't you get some?` %>
+        </p>
+        <ul class="friendList">
+          <% for (let i = 0; i < currentUser.friends.length; i++){ %>
+          <li data-friendId="<%= currentUser.friends[i]._id %>">
+            <%= currentUser.friends[i].userName %>
+            <button class="pokeFriendBtn">( •_•)σ Poke</button>
+          </li>
+          <% } %>
+        </ul>
+      </div>
+
+      <!-- Check if current value (which is an object), contains the user._id -->
+      <!-- array of objects const newArr = currentUser.friends.map(val => val._id) -->
+      <div class="all-users">
+        <ul class="addFriendList">
+          <% userList.forEach(function (user) { const newArr =
+          currentUser.friends.map(val => val._id) %> <% if
+          (newArr.includes(user._id)) { %>
+          <li data-friendId="<%= user._id %>">
+            <%= user.userName %> <button class="removeFriendBtn">Remove</button>
+          </li>
+
+          <% } else if(user._id.toString() === currentUser._id.toString()){ %>
+          <% } else { %>
+          <li data-friendId="<%= user._id %>">
+            <%= user.userName %> <button class="addFriendBtn">Add</button>
+          </li>
+          <% } %> <% }) %>
+        </ul>
+      </div>
     </div>
-    <ul class="friendList">
-      <% for (let i = 0; i < currentUser.friends.length; i++){ %>
-      <li><%= currentUser.friends[i].userName %></li>
-      <% } %>
-    </ul>
-    <p>
-      <%= friends.length > 0 ? `You have ${friends.length} friends` : `You have
-      ${friends.length} friends. Why don't you get some?` %>
-    </p>
-
-    <!-- Check if current value (which is an object), contains the user._id -->
-    <!-- array of objects const newArr = currentUser.friends.map(val => val._id) -->
-    <ul class="addFriendList">
-      <% userList.forEach(function (user) { const newArr =
-      currentUser.friends.map(val => val._id) %> <% if
-      (newArr.includes(user._id)) { %>
-      <li data-friendId="<%= user._id %>">
-        <%= user.userName %> <button class="removeFriendBtn">Remove</button>
-      </li>
-
-      <% } else if(user._id.toString() === currentUser._id.toString()){ %> <% }
-      else { %>
-      <li data-friendId="<%= user._id %>">
-        <%= user.userName %> <button class="addFriendBtn">Add</button>
-      </li>
-      <% } %> <% }) %>
-    </ul>
     <script src="js/main.js"></script>
   </body>
 </html>

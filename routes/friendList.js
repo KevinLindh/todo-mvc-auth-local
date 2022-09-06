@@ -4,7 +4,8 @@ const userController = require("../controllers/user");
 const { ensureAuth } = require("../middleware/auth");
 
 router.get("/", ensureAuth, userController.getUserInfo);
-router.put("/", userController.addFriend);
-router.delete("/", userController.deleteFriend);
+router.put("/addfriend", userController.addFriend);
+router.put("/pokefriend", userController.pokeFriend);
+router.delete("/deleteFriend", userController.deleteFriend);
 
 module.exports = router;

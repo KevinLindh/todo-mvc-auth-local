@@ -1,18 +1,85 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: aliceblue;
+}
+
 .userInfo {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
 }
 
 .userInfo a {
   margin-left: 30px;
   padding: 15px;
-  background-color: blanchedalmond;
   border-radius: 10px;
 }
-
-.friendList {
+.friend-section {
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
+.all-users {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stats span {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.friend-section {
+  background-color: azure;
+  padding: 100px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.friend-section p {
+  font-weight: bold;
+  text-decoration: underline;
+}
 .addFriendList {
+  background-color: antiquewhite;
+  padding: 100px;
+  border: 2px solid black;
+  border-radius: 20px;
+}
+
+.main {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.friendList li {
+  padding: 5px;
+  list-style-type: none;
+}
+
+.addFriendList li {
+  padding: 2px;
+  list-style-type: none;
+}
+
+.addFriendBtn:hover,
+.removeFriendBtn:hover,
+.pokeFriendBtn:hover {
+  cursor: pointer;
 }

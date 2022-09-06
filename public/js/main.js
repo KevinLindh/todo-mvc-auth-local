@@ -1,4 +1,5 @@
 const addFriendList = document.querySelector(".addFriendList");
+const friendList = document.querySelector(".friendList");
 
 addFriendList.addEventListener("click", async (event) => {
   if (event.target.classList.value === "addFriendBtn") {
@@ -8,7 +9,7 @@ addFriendList.addEventListener("click", async (event) => {
 
     const body = { id: newFriendId };
 
-    const response = await fetch("/friendlist", {
+    const response = await fetch("/friendlist/addfriend", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +27,7 @@ addFriendList.addEventListener("click", async (event) => {
 
     const body = { id: newFriendId };
 
-    const response = await fetch("/friendlist", {
+    const response = await fetch("/friendlist/deleteFriend", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
@@ -39,6 +40,26 @@ addFriendList.addEventListener("click", async (event) => {
     }
   }
 });
+
+friendList.addEventListener("click", async (event) => {
+  if (event.target.classList.value === "pokeFriendBtn") {
+    const newPokeId = event.target.parentElement.dataset.friendid;
+    const body = { id: newPokeId };
+
+    const response = await fetch("friendlist/pokefriend", {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+
+    if (response.ok) {
+      location.reload();
+    }
+  }
+});
+
 // const deleteBtn = document.querySelectorAll(".del");
 // const todoItem = document.querySelectorAll("span.not");
 // const todoComplete = document.querySelectorAll("span.completed");
