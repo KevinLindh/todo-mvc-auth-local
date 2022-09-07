@@ -2,9 +2,9 @@
 
 An application for adding friends and poking them
 
-#Features
+# Features
 
-Instant Friends (Fullstack Web App)
+# Instant Friends (Fullstack Web App)
 
 - User can sign up for a new account, or log in to an existing account
 - User can see how many friends they currently have 
