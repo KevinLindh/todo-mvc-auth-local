@@ -43,9 +43,9 @@ bcrypt, connect-mongo, dotenv, ejs, express, express-flash, express-session, mon
 
 - Style main page to look better
 - Make users searchable instead of displaying all
-- add friend request instead of instantly adding
-- add date field to see when pokes have happened
-- add a searchable list for pokes and poked
+- Add friend request instead of instantly adding
+- Add date field to see when pokes have happened
+- Add a searchable list for pokes and poked
 
 
 
