@@ -1,23 +1,15 @@
 # Introduction
 
-A Simple ToDo App is built using the MVC Architecture, we have also implemented "authorization" so folx can sign up, customize & personalize the app 
+An application for adding friends and poking them
 
 ---
-
-> Be sure to add that lovely star 😀 and fork it for your own copy
-
+# Objectives
+Current features of the app is to be able to add and remove friends. Once they are added you are able to poke them. There is a tracker on who you've poked and who has poked you. 
 ---
 
 # Objectives
 
 - It's a beginner level app created to understand how MVC concept and logins are added
-
----
-
-# Who is this for? 
-
-- It's for beginners & intermediates with little more experience, to help understand the various aspects of building a node app with some complex features
-
 ---
 
 # Packages/Dependencies used 
