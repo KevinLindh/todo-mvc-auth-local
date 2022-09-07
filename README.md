@@ -4,10 +4,11 @@ An application for adding friends and poking them
 
 #Features
 
-Instant Friends (Fullstack Web App) - 
--User can sign up for a new account, or log in to an existing account
--User can see how many friends they currently have 
--user can add friends through an input, which can then be removed from their profile if needed 
+Instant Friends (Fullstack Web App)
+
+- User can sign up for a new account, or log in to an existing account
+- User can see how many friends they currently have 
+- User can add friends through an input, which can then be removed from their profile if needed 
 - taking nods from glassmorphism and neomorphism design styles, we created a clean, modernized interface that is easy and enjoyable for any user’s experience
 ---
 
